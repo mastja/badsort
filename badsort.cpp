@@ -27,7 +27,7 @@ int main(){
 
     // declare/set alpha variable
     float alpha;
-    cout << "Enter the value of alpha:\t";
+    cout << "Enter the value of alpha: ";
     cin >> alpha;
 
     // read from file, so long as we have not reached the end of file
@@ -50,11 +50,11 @@ int main(){
             infile>>arr1[i];
         }
 
-        /* run merge sort function, declared above and written below
+        /* run bad sort function, declared above and written below
         program takes an array of unsorted positive integers and sorts into
-        increasing order using the merge sort algorithm
+        increasing order using the bad sort algorithm
         */    
-        bad_sort(arr1, 1, len, a);
+        bad_sort(arr1, 1, len, alpha);
 
         // write content from the sorted array into the output file
         for( i = 1 ; i <= len ; i++ ){
@@ -85,6 +85,7 @@ void bad_sort(int arr[], int m, int n, float alpha){
     else if(n > 2){
 
         // get mid index
+        float len = (float) n;
         int mid = round(alpha * n);
 
         if (mid = n){
