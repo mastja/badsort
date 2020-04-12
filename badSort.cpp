@@ -8,6 +8,7 @@
 #include<iostream>
 #include<fstream>
 #include<assert.h>
+#include<cmath>
 using namespace std;
 
 void bad_sort(int arr[], int m, int n, float alpha);
@@ -25,7 +26,9 @@ int main(){
     ofstream outfile1("bad.out");
 
     // declare/set alpha variable
-    float a = (3/4);
+    float alpha;
+    cout << "Enter the value of alpha:\t";
+    cin >> alpha;
 
     // read from file, so long as we have not reached the end of file
     while (!infile.eof( )){
@@ -68,7 +71,7 @@ int main(){
 }
 
 
-// merge_sort function sorts an array using the merge sort alorithm
+// bad_sort function sorts an array using the bad sort alorithm
 
 void bad_sort(int arr[], int m, int n, float alpha){
 
@@ -84,13 +87,17 @@ void bad_sort(int arr[], int m, int n, float alpha){
         // get mid index
         int mid = round(alpha * n);
 
+        if (mid = n){
+            mid = mid - 1;
+        }
+
         // recursive call to sort the left subarray
-        bad_sort(arr, m, m + mid - 1, alpha);
+        bad_sort(arr, m, mid - 1, alpha);
 
         // recursive call to sort the right subarray
-        bad_sort(arr, m + mid, n, alpha);
+        bad_sort(arr, n - mid, n - 1, alpha);
 
         // recursive call to sort the left subarray again
-        bad_sort(arr, m, m + mid - 1, alpha);
+        bad_sort(arr, m, mid - 1, alpha);
     }
 }
